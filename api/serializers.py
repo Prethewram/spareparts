@@ -32,15 +32,18 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
         )
         user.save()
         return user
+    
 
 class OTPVerificationSerializer(serializers.Serializer):
     email = serializers.EmailField()
     otp = serializers.CharField(max_length=6)
 
+
 class UserLoginSerializer(serializers.Serializer):
     email = serializers.EmailField(required=False)
     phone_number = serializers.CharField(max_length=10, required=False)
     password = serializers.CharField(max_length=100)
+
 
     def validate(self, data):
         email = data.get('email')
