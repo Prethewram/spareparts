@@ -144,8 +144,6 @@ class SubvehicleCarSerializer(serializers.ModelSerializer):
     def get_vehicle_name(self, obj):
         return obj.vehicle.name
 
-
-
 class CategorySerializer(serializers.ModelSerializer):
     subvehicle_type = serializers.SlugRelatedField(
         queryset=ContentType.objects.all(), slug_field='model'
@@ -164,7 +162,6 @@ class CategorySerializer(serializers.ModelSerializer):
             elif obj.subvehicle_type.model == 'subvehicle_bike':
                 return SubvehicleBikeSerializer(obj.subvehicle).data
         return None
-
 
 class QualitySerializer(serializers.ModelSerializer):
     class Meta:
@@ -210,7 +207,7 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = ['id', 'product_id', 'product', 'user_id', 'user', 'rating', 'comment', 'created_at']
 
-# Cart related serializers
+# Cart related serializer
 
 class CartItemSerializer(serializers.ModelSerializer):
     product_id = serializers.PrimaryKeyRelatedField(queryset=Product.objects.all(), source='product', write_only=True)
