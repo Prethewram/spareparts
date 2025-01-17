@@ -269,15 +269,11 @@ class AccessoryProductsSerializer(serializers.ModelSerializer):
         instance = super().update(instance, validated_data)
         
         instance.accessory_images.all().delete()
-        
+         
         for image in accessory_image_files:
             AccessoryImages.objects.create(accessory=instance, image=image)
         return instance
     
-
-
-
-
 class CarouselImageSerializer(serializers.ModelSerializer):
     class Meta:
         model=CarouselImage

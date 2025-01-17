@@ -184,7 +184,6 @@ def get_address(request, address_id):
     serializer = AddressSerializer(address)
     return Response(serializer.data)
 
-
 @api_view(['PUT'])
 def update_address(request, address_id):
     try:
