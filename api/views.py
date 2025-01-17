@@ -184,7 +184,6 @@ def get_address(request, address_id):
     serializer = AddressSerializer(address)
     return Response(serializer.data)
 
-
 @api_view(['PUT'])
 def update_address(request, address_id):
     try:
@@ -582,7 +581,6 @@ class FilterSubVehiclecarByYearView(APIView):
         serializer = SubvehicleCarSerializer(sub_vehicles, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
-
 class FilterSubVehiclebikeByYearView(APIView):
     def get(self, request, year):
         sub_vehicles = Subvehicle_bike.objects.filter(model_year=year)
