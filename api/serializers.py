@@ -4,7 +4,6 @@ import random
 import datetime
 from django.contrib.auth.hashers import make_password
 
-
 class UserRegistrationSerializer(serializers.ModelSerializer):
     confirm_password = serializers.CharField(write_only=True)
 
@@ -93,7 +92,6 @@ class AddressSerializer(serializers.ModelSerializer):
         model = Address
         fields = '__all__'
 
-
 class MainCategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = MainCategory
@@ -106,7 +104,6 @@ class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
         fields = ['id', 'name', 'main_category', 'main_category_id', 'image', 'is_electric']
-
 
 class VehicleSerializer(serializers.ModelSerializer):
     brand = BrandSerializer(read_only=True)
