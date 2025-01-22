@@ -56,7 +56,6 @@ class UserDetailSerializer(serializers.ModelSerializer):
         model = User
         fields = ['user_id', 'firstname', 'lastname','email','phone_number']
 
-
 class ChangePasswordSerializer(serializers.Serializer):
     email = serializers.EmailField()
     new_password = serializers.CharField(write_only=True)

@@ -47,7 +47,7 @@ class MainCategory(models.Model):
 
     def __str__(self):
         return self.name
-
+    
 class Brand(models.Model):
     name = models.CharField(max_length=50)
     main_category=models.ForeignKey(MainCategory,on_delete=models.CASCADE)
@@ -63,8 +63,6 @@ class Vehicle(models.Model):
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name='vehicle_brand')  
     vehicle_category=models.ForeignKey(MainCategory, on_delete=models.CASCADE)
     electric= models.BooleanField(null=True,blank=True)
-
-
     def __str__(self):
         return self.name
     
@@ -89,7 +87,6 @@ class Subvehicle_bike(models.Model):
         return self.name
 
 # Product related models
-
 class Category(models.Model):
     image = models.ImageField(upload_to='category_images/')
     name = models.CharField(max_length=100)
