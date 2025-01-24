@@ -530,8 +530,7 @@ class FilteredAccessoryView(APIView):
         accessories = AccessoryProducts.objects.filter(accessory_type=accessory_type)
         serializer = AccessoryProductsSerializer(accessories, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
-    
+        
 class SubvehicleBikeListCreateView(generics.ListCreateAPIView):
     queryset = Subvehicle_bike.objects.all()
     serializer_class = SubvehicleBikeSerializer
@@ -556,10 +555,8 @@ class CarouselImageViewRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyA
     queryset = CarouselImage.objects.all()
     serializer_class = CarouselImageSerializer
 
-
 class SubvehiclecarByMainvehicle(generics.ListAPIView):
     serializer_class = SubvehicleCarSerializer
-
     def get_queryset(self):
         vehicle_id = self.kwargs['vehicle_id']
         
