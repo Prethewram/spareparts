@@ -530,7 +530,7 @@ class FilteredAccessoryView(APIView):
         accessories = AccessoryProducts.objects.filter(accessory_type=accessory_type)
         serializer = AccessoryProductsSerializer(accessories, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-        
+            
 class SubvehicleBikeListCreateView(generics.ListCreateAPIView):
     queryset = Subvehicle_bike.objects.all()
     serializer_class = SubvehicleBikeSerializer
